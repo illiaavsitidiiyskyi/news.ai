@@ -50,7 +50,7 @@ def fetch_all_articles(db: Session):
                 continue
 
             seen_urls.add(url)
-3
+
             article_data = {
                 "title": entry.title,
                 "url": url,

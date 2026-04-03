@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>📰 Новости</h2>
+
+<div class="articles">
+{% for article in articles %}
+    <div class="card">
+        <h3>{{ article.title }}</h3>
+
+        <p>
+            {{ article.summary if article.summary else article.content[:150] }}...
+        </p>
+
+        <small>
+            {% if article.source %}
+                Источник: {{ article.source.name }}
+            {% endif %}
+        </small>
+        <br>
+
+        <small>
+            {{ article.published_at }}
+        </small>
+
+        <br><br>
+
+        <a href="/article/{{ article.id }}">Читать →</a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
