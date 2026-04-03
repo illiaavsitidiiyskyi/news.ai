@@ -9,5 +9,5 @@ class Source(Base):
     name = Column(String, unique=True, nullable=False)
     rss_url = Column(String, unique=True, nullable=False)
 
-    # один источник -> много статей
-    articles = relationship("Article", back_populates="source")
+    # Один источник -> много статей
+    articles = relationship("Article", back_populates="source", cascade="all, delete-orphan")
